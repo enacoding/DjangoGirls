@@ -15,3 +15,6 @@ class Post(models.Model):
     def __str__(self):
         return self.title
 
+    @staticmethod
+    def para_ver_los_dos_ultimos():
+        return Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
